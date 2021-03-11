@@ -1,11 +1,3 @@
-# steps:
-# - name: node
-#   entrypoint: npm
-#   args: ['install']
-# - name: node
-#   entrypoint: npm
-#   args: ['test']
-
 steps:
 # This step runs the unit tests on the app
 - name: 'maven'
@@ -37,7 +29,24 @@ steps:
   - 'npm'
   - 'install'
   
-
+# Build the container image
+- name: "gcr.io/cloud-builders/docker"
+  args:
+  - "docker"
+  - "login"
+  - "-u"
+  - "${_CI_USERNAME}"
+  - "-p"
+  - "${_CI_PASSWORD}"
+  - "&&"
+  - "docker"
+  - "build"
+  - "-t"
+  - "java"
+  - "${USERNAME}/java:1"
+  - "-t"
+  - "${_REGISTRY_URL}/$PROJECT_ID/${_REGISTRY}/helloworld:latest"
+  - "."
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Build
