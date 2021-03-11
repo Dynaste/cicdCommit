@@ -44,16 +44,6 @@ steps:
   - "${_USERNAME}/java:1"
   - "."
 
-
-  entrypoint: 'bash'
-  args:
-  - '-c'
-  - |
-    ./scripts/install-prerequisites.sh \
-    && composer install -n -q --prefer-dist \
-    && php init --overwrite=y \
-    && php tests/run
-
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Build
