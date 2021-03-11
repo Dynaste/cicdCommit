@@ -1,33 +1,33 @@
 steps:
 # This step runs the unit tests on the app
-# - name: 'maven'
-#   id: Test
-#   args:
-#   - 'mvn'
-#   - 'test'
+- name: 'maven'
+  id: Test
+  args:
+  - 'mvn'
+  - 'test'
 
 # # This step build the app
-# - name: 'maven'
-#   id: Build
-#   args:
-#   - 'mvn'
-#   - 'clean'
-#   - 'install' 
-#   - '-DskipTest'
+- name: 'maven'
+  id: Build
+  args:
+  - 'mvn'
+  - 'clean'
+  - 'install' 
+  - '-DskipTest'
 
-# - name: 'node'
-#   id: testNode
-#   dir: './nodeApi/src'
-#   args:
-#   - 'npm'
-#   - 'test'
+- name: 'node'
+  id: testNode
+  dir: './nodeApi/src'
+  args:
+  - 'npm'
+  - 'test'
 
-# - name: 'node'
-#   id: buildNode
-#   dir: './nodeApi/src'
-#   args:
-#   - 'npm'
-#   - 'install'
+- name: 'node'
+  id: buildNode
+  dir: './nodeApi/src'
+  args:
+  - 'npm'
+  - 'install'
   
 # Build the container image
 - name: "gcr.io/cloud-builders/docker"
@@ -53,20 +53,18 @@ steps:
   - "push"
   - "docker.io/${_USERNAME}/java:1"
 
-# This step builds the container image.
-# - name: 'gcr.io/cloud-builders/docker'
-#   id: Build
-#   args:
-#   - 'build'
-#   - '-t'
-#   - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
-#   - '.'
+- name: 'node'
+  dir: './nodeApi/src'
+  id: docker-build-node
+  args:
+  - "build"
+  - "-t"
+  - "${_USERNAME}/node:1"
+  - "."
 
-# This step pushes the image to Container Registry
-# The PROJECT_ID and SHORT_SHA variables are automatically
-# replaced by Cloud Build.
-# - name: 'gcr.io/cloud-builders/docker'
-#   id: Push
-#   args:
-#   - 'push'
-#   - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+- name: 'node'
+  dir: './nodeApi/src'
+  id: docker-push-node
+  args:
+  - "push"
+  - "docker.io/${_USERNAME}/node:1"
