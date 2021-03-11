@@ -24,7 +24,7 @@ steps:
   - '-DskipTest'
 
 - name: 'node'
-  id: Test
+  id: testNode
   dir: '/nodeApi/src'
   args:
   - 'npm'
