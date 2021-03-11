@@ -36,9 +36,6 @@ steps:
   args:
   - 'npm'
   - 'install'
-  - 'npm'
-  - 'run'
-  - 'build'
   
 
 # This step builds the container image.
