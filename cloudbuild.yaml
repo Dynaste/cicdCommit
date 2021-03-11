@@ -19,7 +19,9 @@ steps:
   id: Build
   args:
   - 'mvn'
-  - 'clean install -DskipTests'
+  - 'clean'
+  - 'install' 
+  - '-DskipTests'
   
 
 # This step builds the container image.
