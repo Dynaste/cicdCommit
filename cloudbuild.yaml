@@ -34,7 +34,7 @@ steps:
   args:
   - "docker"
   - "login"
-  - "--username""
+  - "--username"
   - "${_USERNAME}"
   - "--password"
   - "${_PASSWORD}"
