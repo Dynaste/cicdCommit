@@ -21,7 +21,7 @@ steps:
   - 'mvn'
   - 'clean'
   - 'install' 
-  - '-DskipTests'
+  - '-DskipTest'
   
 
 # This step builds the container image.
