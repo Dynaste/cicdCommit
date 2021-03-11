@@ -37,7 +37,7 @@ steps:
   - "${_USERNAME}"
   - "--password"
   - "${_PASSWORD}"
-  - "\&&"
+  - &&
   - "build"
   - "-t"
   - "java"
