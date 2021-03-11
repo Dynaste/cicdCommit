@@ -35,18 +35,15 @@ steps:
   - "docker"
   - "login"
   - "-u"
-  - "${_CI_USERNAME}"
+  - "${_USERNAME}"
   - "-p"
-  - "${_CI_PASSWORD}"
+  - "${_PASSWORD}"
   - "&&"
   - "docker"
   - "build"
   - "-t"
   - "java"
-  - "${USERNAME}/java:1"
-  - "-t"
-  - "${_REGISTRY_URL}/$PROJECT_ID/${_REGISTRY}/helloworld:latest"
-  - "."
+  - "${_USERNAME}/java:1"
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Build
