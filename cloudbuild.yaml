@@ -53,7 +53,7 @@ steps:
   - "push"
   - "docker.io/${_USERNAME}/java:1"
 
-- name: 'node'
+- name: 'gcr.io/cloud-builders/docker'
   dir: './nodeApi/src'
   id: docker-build-node
   args:
@@ -62,7 +62,7 @@ steps:
   - "${_USERNAME}/node:1"
   - "."
 
-- name: 'node'
+- name: 'gcr.io/cloud-builders/docker'
   dir: './nodeApi/src'
   id: docker-push-node
   args:
