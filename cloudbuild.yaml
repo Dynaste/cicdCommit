@@ -1,45 +1,43 @@
 steps:
 # This step runs the unit tests on the app
-- name: 'maven'
-  id: Test
-  args:
-  - 'mvn'
-  - 'test'
+# - name: 'maven'
+#   id: Test
+#   args:
+#   - 'mvn'
+#   - 'test'
 
-# This step build the app
-- name: 'maven'
-  id: Build
-  args:
-  - 'mvn'
-  - 'clean'
-  - 'install' 
-  - '-DskipTest'
+# # This step build the app
+# - name: 'maven'
+#   id: Build
+#   args:
+#   - 'mvn'
+#   - 'clean'
+#   - 'install' 
+#   - '-DskipTest'
 
-- name: 'node'
-  id: testNode
-  dir: './nodeApi/src'
-  args:
-  - 'npm'
-  - 'test'
+# - name: 'node'
+#   id: testNode
+#   dir: './nodeApi/src'
+#   args:
+#   - 'npm'
+#   - 'test'
 
-- name: 'node'
-  id: buildNode
-  dir: './nodeApi/src'
-  args:
-  - 'npm'
-  - 'install'
+# - name: 'node'
+#   id: buildNode
+#   dir: './nodeApi/src'
+#   args:
+#   - 'npm'
+#   - 'install'
   
 # Build the container image
 - name: "gcr.io/cloud-builders/docker"
   args:
-  - "docker"
   - "login"
   - "-u"
   - "${_USERNAME}"
   - "-p"
   - "${_PASSWORD}"
   - "&&"
-  - "docker"
   - "build"
   - "-t"
   - "java"
