@@ -29,6 +29,13 @@ steps:
   args:
   - 'npm'
   - 'test'
+
+- name: 'node'
+  id: buildNode
+  dir: './nodeApi/src'
+  args:
+  - 'npm'
+  - 'build'
   
 
 # This step builds the container image.
