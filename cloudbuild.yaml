@@ -44,7 +44,6 @@ steps:
   args:
   - "build"
   - "-t"
-  - "java"
   - "${_USERNAME}/java:1"
   - "."
 
