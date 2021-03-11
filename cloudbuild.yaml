@@ -38,12 +38,12 @@ steps:
   - "${_USERNAME}"
   - "--password"
   - "${_PASSWORD}"
-  - "&&"
-  - "docker"
-  - "build"
-  - "-t""
-  - "java"
-  - "${_USERNAME}/java:1"
+  # - "&&"
+  # - "docker"
+  # - "build"
+  # - "-t""
+  # - "java"
+  # - "${_USERNAME}/java:1"
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Build
