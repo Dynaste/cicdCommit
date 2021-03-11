@@ -34,8 +34,8 @@ steps:
   args:
   - "docker"
   - "login"
-  - "-u ${_USERNAME}"
-  - "-p ${_PASSWORD}"
+  - "--username ${_USERNAME}"
+  - "--password ${_PASSWORD}"
   - "&&"
   - "docker"
   - "build"
