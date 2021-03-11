@@ -14,6 +14,14 @@ steps:
   - 'mvn'
   - 'test'
 
+# This step runs the unit tests on the app
+- name: 'maven'
+  id: Build
+  args:
+  - 'mvn'
+  - 'clean install -DskipTests'
+  
+
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
 #   id: Build
