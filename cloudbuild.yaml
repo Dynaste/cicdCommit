@@ -51,7 +51,7 @@ steps:
   id: docker-push-java
   args:
   - "push"
-  - docker.io/${_USERNAME}/java:1"
+  - "docker.io/${_USERNAME}/java:1"
 
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
