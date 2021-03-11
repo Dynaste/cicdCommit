@@ -10,7 +10,6 @@ steps:
 # This step runs the unit tests on the app
 - name: 'maven'
   id: Test
-  entrypoint: /bin/sh
   args:
   - 'mvn'
   - 'test'
