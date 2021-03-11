@@ -31,18 +31,19 @@ steps:
   
 # Build the container image
 - name: "gcr.io/cloud-builders/docker"
-  args:
-  - "login"
-  - "--username"
-  - "${_USERNAME}"
-  - "--password"
-  - "${_PASSWORD}"
-  - &&
-  - "build"
-  - "-t"
-  - "java"
-  - "${_USERNAME}/java:1"
-  - "."
+  args: ['bash', '-c', 'docker login --username=$_USERNAME --password=$_PASSWORD && docker build -t java $_USERNAME/java:1 .']
+  # args:
+  # - "login"
+  # - "--username"
+  # - "${_USERNAME}"
+  # - "--password"
+  # - "${_PASSWORD}"
+  # - &&
+  # - "build"
+  # - "-t"
+  # - "java"
+  # - "${_USERNAME}/java:1"
+  # - "."
 
 # This step builds the container image.
 # - name: 'gcr.io/cloud-builders/docker'
