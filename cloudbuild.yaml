@@ -35,6 +35,9 @@ steps:
   dir: './nodeApi/src'
   args:
   - 'npm'
+  - 'install'
+  - 'npm'
+  - 'run'
   - 'build'
   
 
